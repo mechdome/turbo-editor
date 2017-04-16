@@ -66,6 +66,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.faizmalkani.floatingactionbutton.FloatingActionButton;
+import com.mechdome.aboutmechdome.AboutMechDomeActivity;
 import com.spazedog.lib.rootfw4.RootFW;
 import com.spazedog.lib.rootfw4.utils.io.FileReader;
 
@@ -430,16 +431,7 @@ public abstract class MainActivity extends ActionBarActivity implements IHomeAct
             if (imMarkdown != null)
                 imMarkdown.setVisible(isMarkdown);
 
-            MenuItem imShare = menu.findItem(R.id.im_share);
-            if (imMarkdown != null) {
-                ShareActionProvider shareAction = (ShareActionProvider) MenuItemCompat
-                        .getActionProvider(imShare);
-                Intent shareIntent = new Intent();
-                shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_STREAM, greatUri.getUri());
-                shareIntent.setType("text/plain");
-                shareAction.setShareIntent(shareIntent);
-            }
+
         }
 
         MenuItem imDonate = menu.findItem(R.id.im_donate);
@@ -1211,8 +1203,10 @@ public abstract class MainActivity extends ActionBarActivity implements IHomeAct
         mDrawerLayout.closeDrawer(Gravity.START);
         mDrawerLayout.openDrawer(Gravity.END);
     }
-    //endregion
 
+    public void OpenAboutMechDome(View view) {
+        startActivity(new Intent(this, AboutMechDomeActivity.class));
+    }
     //region Ovverideses
     @Override
     public void nextPageClicked() {

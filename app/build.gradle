@@ -43,10 +43,10 @@ repositories {
 
 android {
     compileSdkVersion 22
-    buildToolsVersion '22.0.1'
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.maskyn.fileeditor"
-        minSdkVersion 11
+        minSdkVersion 16
         targetSdkVersion 22
         versionCode 47
         versionName "1.19"
@@ -71,7 +71,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+    compile fileTree(include: '*.jar', dir: 'libs')
     compile project(':libraries:sharedCode')
     //compile 'com.google.android.gms:play-services-ads:6.5.+'
     compile('com.crashlytics.sdk.android:crashlytics:2.+@aar') {

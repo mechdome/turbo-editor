@@ -157,7 +157,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="216dp"
+            android:layout_height="280dp"
             android:id="@id/drawer_buttons"
             android:layout_alignParentBottom="true"
             android:orientation="vertical">
@@ -211,6 +211,20 @@
                 android:clickable="true"
                 android:onClick="OpenSettings"
                 android:background="?selectableItemBackground"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/about_mechdome"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:textSize="12sp"
+                android:textColor="@color/navigation_drawer_button_text_color_inverted"
+                android:clickable="true"
+                android:onClick="OpenAboutMechDome"
+                android:background="?selectableItemBackground"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -226,6 +240,7 @@
                 android:clickable="true"
                 android:onClick="OpenInfo"
                 android:background="?selectableItemBackground"/>
+
 
 
 

@@ -119,6 +119,7 @@
         <!--<activity android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>-->
         <meta-data android:name="com.crashlytics.ApiKey" android:value="672ab7531ce1e2e83c2ec6d84e8e94f2fa692c2a"/>
+        <meta-data android:name="md_remove_ads" android:value="com.maskyn.fileeditor.MechDomeAd" />
     </application>
 
 </manifest>
