@@ -66,7 +66,7 @@ public class SettingsFragment extends Fragment implements NumberPickerDialog.INu
         sLineNumbers = PreferenceHelper.getLineNumbers(context);
         sReadOnly = PreferenceHelper.getReadOnly(context);
         sAccessoryView = PreferenceHelper.getUseAccessoryView(context);
-        sStorageAccessFramework = PreferenceHelper.getUseStorageAccessFramework(context);
+        sStorageAccessFramework = true;
         sSuggestions = PreferenceHelper.getSuggestionActive(context);
         sAutoSave = PreferenceHelper.getAutoSave(context);
         sIgnoreBackButton = PreferenceHelper.getIgnoreBackButton(context);
@@ -90,7 +90,6 @@ public class SettingsFragment extends Fragment implements NumberPickerDialog.INu
 
         swSuggestions = (SwitchCompat) rootView.findViewById(R.id.switch_suggestions_active);
         swAccessoryView = (SwitchCompat) rootView.findViewById(R.id.switch_accessory_view);
-        swStorageAccessFramework = (SwitchCompat) rootView.findViewById(R.id.switch_storage_access_framework);
         swAutoSave = (SwitchCompat) rootView.findViewById(R.id.switch_auto_save);
         swIgnoreBackButton = (SwitchCompat) rootView.findViewById(R.id.switch_ignore_backbutton);
         swSplitText = (SwitchCompat) rootView.findViewById(R.id.switch_page_system);
@@ -104,7 +103,6 @@ public class SettingsFragment extends Fragment implements NumberPickerDialog.INu
 
         swSuggestions.setChecked(sSuggestions);
         swAccessoryView.setChecked(sAccessoryView);
-        swStorageAccessFramework.setChecked(sStorageAccessFramework);
         swAutoSave.setChecked(sAutoSave);
         swIgnoreBackButton.setChecked(sIgnoreBackButton);
         swSplitText.setChecked(sSplitText);
@@ -118,7 +116,6 @@ public class SettingsFragment extends Fragment implements NumberPickerDialog.INu
         themeView = (TextView) rootView.findViewById(R.id.drawer_button_theme);
 
         ViewUtils.setVisible(goPro, !ProCheckUtils.isPro(getActivity()));
-        ViewUtils.setVisible(swStorageAccessFramework, Device.hasKitKatApi());
 
         goPro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -231,13 +228,6 @@ public class SettingsFragment extends Fragment implements NumberPickerDialog.INu
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 PreferenceHelper.setUseAccessoryView(getActivity(), isChecked);
                 ((MainActivity) getActivity()).aPreferenceValueWasChanged(PreferenceChangeType.ACCESSORY_VIEW);
-            }
-        });
-
-        swStorageAccessFramework.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                PreferenceHelper.setUseStorageAccessFramework(getActivity(), isChecked);
             }
         });
 

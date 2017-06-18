@@ -1160,39 +1160,28 @@ public abstract class MainActivity extends ActionBarActivity implements IHomeAct
 
     //region Calls from the layout
     public void OpenFile(View view) {
+        // ACTION_OPEN_DOCUMENT is the intent to choose a file via the system's file
+        // browser.
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
 
-        if (Device.hasKitKatApi()  && PreferenceHelper.getUseStorageAccessFramework(this)) {
-            // ACTION_OPEN_DOCUMENT is the intent to choose a file via the system's file
-            // browser.
-            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        // Filter to only show results that can be "opened", such as a
+        // file (as opposed to a list of contacts or timezones)
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
 
-            // Filter to only show results that can be "opened", such as a
-            // file (as opposed to a list of contacts or timezones)
-            intent.addCategory(Intent.CATEGORY_OPENABLE);
+        // Filter to show only images, using the image MIME data type.
+        // If one wanted to search for ogg vorbis files, the type would be "audio/ogg".
+        // To search for all documents available via installed storage providers,
+        // it would be "*/*".
+        intent.setType("*/*");
 
-            // Filter to show only images, using the image MIME data type.
-            // If one wanted to search for ogg vorbis files, the type would be "audio/ogg".
-            // To search for all documents available via installed storage providers,
-            // it would be "*/*".
-            intent.setType("*/*");
-
-            startActivityForResult(intent, READ_REQUEST_CODE);
-        } else {
-            Intent subActivity = new Intent(MainActivity.this, SelectFileActivity.class);
-            subActivity.putExtra("action", SelectFileActivity.Actions.SelectFile);
-            AnimationUtils.startActivityWithScale(this, subActivity, true, SELECT_FILE_CODE, view);
-        }
+        startActivityForResult(intent, READ_REQUEST_CODE);
     }
 
     public void CreateFile(View view) {
-        if (Device.hasKitKatApi() && PreferenceHelper.getUseStorageAccessFramework(this)) {
-            Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-            intent.setType("*/*");
-            //intent.putExtra(Intent.EXTRA_TITLE, ".txt");
-            startActivityForResult(intent, CREATE_REQUEST_CODE);
-        } else {
-            newFileToOpen(new GreatUri(Uri.EMPTY, "", ""), "");
-        }
+        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intent.setType("*/*");
+        //intent.putExtra(Intent.EXTRA_TITLE, ".txt");
+        startActivityForResult(intent, CREATE_REQUEST_CODE);
     }
 
     public void OpenInfo(View view) {
