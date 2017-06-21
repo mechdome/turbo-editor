@@ -22,13 +22,10 @@
   <string name="close">Zamknij</string>
   <string name="about_action">O aplikacji i autorach</string>
   <string name="about_message"><![CDATA[
-        Turbo Editor is a free and <a href="http://github.com/vmihalachi/turbo-editor">open source</a> app.
+        Turbo Editor is a free and <a href="https://github.com/mechdome/turbo-editor">open source</a> app.<br/>
+        Copyright 2017 MechDome.<br/>
         Copyright 2013-2014 <a href="https://plus.google.com/+VladMihalachi">Vlad Mihalachi</a>. All Rights Reserved.<br/>
         <br/>
-        Many thanks to all who
-        <a href="http://crowdin.net/project/turbo-client">helped with translations</a> or
-        donated to me.<br/>
-        <br/>
-        If you want to send feedback here is the <a href="http://forum.xda-developers.com/android/apps-games/app-turbo-editor-text-editor-t2832016">XDA thread</a>
+        Original app by <a href="https://plus.google.com/+VladMihalachi">Vlad Mihalachi</a>, brought to iOS by MechDome.
     ]]></string>
 </resources>
